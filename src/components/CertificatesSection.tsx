@@ -4,16 +4,19 @@ import Icon from "@/components/ui/icon";
 
 const documents = [
   {
-    title: "Сертификат соответствия ГОСТ",
+    title: "Пищевой допуск",
+    description: "Экспертное заключение о соответствии продукции для контакта с пищевыми продуктами",
+    url: "https://holzerflexo.com/upload/iblock/41b/49x3arwoua9d9qyx7n9hsr4hlgo8pl3p.pdf",
+  },
+  {
+    title: "Сертификат соответствия",
     description: "Подтверждение соответствия продукции государственным стандартам качества",
+    url: "https://holzerflexo.com/upload/iblock/238/z6d4uvy0nbiboz2m3qfdqgdmzp4ptf9f.pdf",
   },
   {
-    title: "Декларация ТР ТС",
-    description: "Декларация соответствия техническим регламентам Таможенного союза",
-  },
-  {
-    title: "Паспорт качества",
-    description: "Документация с техническими характеристиками и результатами испытаний",
+    title: "Протокол испытаний",
+    description: "Результаты лабораторных испытаний продукции на соответствие нормативам",
+    url: "https://holzerflexo.com/upload/iblock/fec/47gy2b7y6vk9gw7si2ax52h878wbkony.pdf",
   },
 ];
 
@@ -50,10 +53,12 @@ const CertificatesSection = () => {
                     {doc.description}
                   </p>
                 </div>
-                <Button variant="ghost" className="text-primary p-0 h-auto mt-auto">
-                  <Icon name="Download" size={16} />
-                  Скачать
-                </Button>
+                <a href={doc.url} target="_blank" rel="noopener noreferrer">
+                  <Button variant="ghost" className="text-primary p-0 h-auto">
+                    <Icon name="Download" size={16} />
+                    Скачать PDF
+                  </Button>
+                </a>
               </CardContent>
             </Card>
           ))}
