@@ -68,10 +68,12 @@ const CertificatesSection = () => {
           <p className="text-sm text-muted-foreground mb-4">
             Полный каталог продукции доступен для скачивания в формате PDF
           </p>
-          <Button variant="outline">
-            <Icon name="FileDown" size={16} />
-            Скачать каталог PDF
-          </Button>
+          <a href="https://holzerflexo.com/upload/iblock/dfd/lzwongnq0n0iiq80t7jhpk3hrs2x01el.pdf" target="_blank" rel="noopener noreferrer">
+            <Button variant="outline">
+              <Icon name="FileDown" size={16} />
+              Скачать каталог PDF
+            </Button>
+          </a>
         </div>
       </div>
     </section>
