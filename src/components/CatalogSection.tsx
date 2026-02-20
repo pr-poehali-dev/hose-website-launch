@@ -2,24 +2,27 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { Link } from "react-router-dom";
 
 const products = [
   {
     icon: "CircleDot",
     series: "Серия 1000MS",
+    slug: "1000ms",
     name: "Рукава ПВХ с металло-спиралью",
     description:
       "Прозрачные армированные рукава для перекачки пищевых продуктов, химических веществ и масел.",
     features: [
       "Прозрачный ПВХ",
       "Стальная спираль",
-      "от -20\u00B0C до +60\u00B0C",
-      "\u00D8 от 19 до 200мм",
+      "от -40\u00B0C до +60\u00B0C",
+      "\u00D8 от 12 до 102мм",
     ],
   },
   {
     icon: "Layers",
     series: "Серия 100",
+    slug: "100",
     name: "Напорные рукава с текстильным каркасом",
     description:
       "Рукава для подачи воды, воздуха и химических растворов под давлением.",
@@ -27,12 +30,13 @@ const products = [
       "Давление до 20 бар",
       "Текстильное армирование",
       "Маслобензостойкие",
-      "\u00D8 от 6 до 100мм",
+      "\u00D8 от 6 до 50мм",
     ],
   },
   {
     icon: "Milk",
     series: "Серия 301",
+    slug: "301",
     name: "Трубки пищевые из ПВХ",
     description:
       "Трубки для молока, пива, напитков и пищевого производства с допуском.",
@@ -46,6 +50,7 @@ const products = [
   {
     icon: "Droplets",
     series: "Серия 190",
+    slug: "190",
     name: "Рукава LayFlat",
     description:
       "Плоские рукава для полива, подачи удобрений и перекачки бензина.",
@@ -115,10 +120,12 @@ const CatalogSection = () => {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button variant="ghost" className="text-primary p-0 h-auto">
-                  Подробнее
-                  <Icon name="ArrowRight" size={16} />
-                </Button>
+                <Link to={"/catalog/" + product.slug}>
+                  <Button variant="ghost" className="text-primary p-0 h-auto">
+                    Подробнее
+                    <Icon name="ArrowRight" size={16} />
+                  </Button>
+                </Link>
               </CardFooter>
             </Card>
           ))}
