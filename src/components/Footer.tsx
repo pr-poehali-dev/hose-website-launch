@@ -59,10 +59,10 @@ const Footer = () => {
                 +7 952 930-44-08
               </a>
               <a
-                href="tel:+74950573840"
+                href="tel:+74950157384"
                 className="hover:text-background transition-colors"
               >
-                +7 495 057-38-4
+                +7 495 015-73-84
               </a>
               <a
                 href="mailto:sale@holzerflexo.com"
