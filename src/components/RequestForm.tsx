@@ -4,27 +4,48 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import Icon from "@/components/ui/icon";
+import funcUrls from "../../backend/func2url.json";
 
 const RequestForm = () => {
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
-    console.log("Form data:", data);
 
-    setTimeout(() => {
-      setLoading(false);
-      toast({
-        title: "Заявка отправлена!",
-        description: "Мы свяжемся с вами в ближайшее время.",
+    try {
+      const res = await fetch(funcUrls["send-telegram"], {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
-      (e.target as HTMLFormElement).reset();
-    }, 600);
+
+      if (res.ok) {
+        toast({
+          title: "Заявка отправлена!",
+          description: "Мы свяжемся с вами в ближайшее время.",
+        });
+        (e.target as HTMLFormElement).reset();
+      } else {
+        toast({
+          title: "Ошибка",
+          description: "Не удалось отправить заявку. Позвоните нам напрямую.",
+          variant: "destructive",
+        });
+      }
+    } catch {
+      toast({
+        title: "Ошибка сети",
+        description: "Проверьте подключение к интернету и попробуйте снова.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
