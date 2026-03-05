@@ -25,6 +25,7 @@ const RequestForm = () => {
       });
 
       if (res.ok) {
+        window.ym?.(107150752, "reachGoal", "form_submit");
         toast({
           title: "Заявка отправлена!",
           description: "Мы свяжемся с вами в ближайшее время.",

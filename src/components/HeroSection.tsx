@@ -41,6 +41,7 @@ const HeroSection = () => {
       });
 
       if (res.ok) {
+        window.ym?.(107150752, "reachGoal", "price_request");
         toast({
           title: "Запрос отправлен!",
           description: "Прайс-лист будет направлен на вашу почту.",
